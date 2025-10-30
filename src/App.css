@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+body
+{
+	--main-background-color: #ffffff;
+	--alt-background-color: #131313;
+	--alt-background-color2: #424242;
+
+	--main-text-color: #333333;
+	--alt-text-color: #ffffff;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -26,6 +36,16 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.app-color1 {
+  color: #ffffff;
+  background-color: #131313;
+}
+
+.app-color2 {
+  color: #131313;
+  background-color: #ffffff;
 }
 
 @keyframes App-logo-spin {
