@@ -1,12 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar'; // Add this import
+import NavBar from './components/NavBar/NavBar'; // Add this import
 
 function App() {
 	return (
 		<div className="App">
-			<NavBar/>
+			<NavBar
+				name="BenFlwrs"
+				links={[
+					{ label: "Home", href: "#home" },
+					{ label: "About", href: "#about" },
+					{ label: "Projects", href: "#projects" },
+					{ label: "Contact", href: "#contact" }
+				]}
+			/>
 			<header className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
 				<p>
