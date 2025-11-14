@@ -11,6 +11,19 @@
             line-height: 1.6;
         }
 
+		.hor-display
+		{
+			display: block;
+			align-content: center;
+			align-items: center;
+			align-self: center;
+		}
+
+		.m-30px
+		{
+			margin-top: 30px;
+		}
+
         /* Navbar */
         nav {
             position: fixed;

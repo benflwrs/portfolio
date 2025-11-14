@@ -3,32 +3,33 @@ import React, { JSX, useEffect, useState } from 'react';
 const navItems: { id: string; label: string }[] = [
     { id: 'about', label: 'About' },
     { id: 'projects', label: 'Projects' },
-    { id: 'background', label: 'Background' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'resume', label: 'Resume' },
+    //{ id: 'background', label: 'Background' },
+    //{ id: 'contact', label: 'Contact' },
 ];
 
 export default function Navbar(): JSX.Element {
     const [isOpen, setIsOpen] = useState(false);
     const [active, setActive] = useState<string>('');
 
-    useEffect(() => {
-        const onScroll = () => {
-            let current = '';
-            navItems.forEach(item => {
-                const el = document.getElementById(item.id);
-                if (!el) return;
-                const sectionTop = el.offsetTop;
-                if (window.pageYOffset >= sectionTop - 200) {
-                    current = item.id;
-                }
-            });
-            setActive(current);
-        };
+    //useEffect(() => {
+    //    const onScroll = () => {
+    //        let current = '';
+    //        navItems.forEach(item => {
+    //            const el = document.getElementById(item.id);
+    //            if (!el) return;
+    //            const sectionTop = el.offsetTop;
+    //            if (window.pageYOffset >= sectionTop - 200) {
+    //                current = item.id;
+    //            }
+    //        });
+    //        setActive(current);
+    //    };
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+    //    window.addEventListener('scroll', onScroll, { passive: true });
+    //    onScroll();
+    //    return () => window.removeEventListener('scroll', onScroll);
+    //}, []);
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault();
