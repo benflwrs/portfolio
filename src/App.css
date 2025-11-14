@@ -106,7 +106,7 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+            transform: rotate(-45deg) translate(3px, -4px);
         }
 
         /* Sections */
@@ -167,6 +167,7 @@
         /* Projects Section */
         #projects {
             background: #0a0a0a;
+			padding: 3rem 10%;
         }
 
         /* Background Section */
@@ -234,7 +235,7 @@
 
         .section-title {
             font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             font-weight: 700;
             letter-spacing: -1px;
         }

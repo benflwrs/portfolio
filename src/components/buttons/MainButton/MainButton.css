@@ -4,7 +4,7 @@
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   color: #ffffff;
   background: #000000;
   border: 1px solid #444444;;
@@ -21,7 +21,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: #ffffff;
+  background: #dbdbdb;
   transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 0;
 }
@@ -47,7 +47,7 @@
   z-index: 1;
 }
 
-/* Ripple effect */
+Ripple effect
 .button::after {
   content: '';
   position: absolute;
