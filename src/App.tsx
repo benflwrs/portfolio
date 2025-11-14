@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/navbar/Navbar'; // Add this import
+import Navbar from './components/NavBar/Navbar'; // Add this import
 //import './components/navbar/Navbar.css';
 
 import ProjectCard from './components/projectcard/ProjectCard'; // Add this import
