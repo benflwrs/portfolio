@@ -10,7 +10,14 @@ function App() {
 	return (
 		<div className="App">
 			<BrowserRouter>
-				<Navbar />
+				<Navbar
+					logo="Benjamin Nicolas"
+					navItems={[
+						{ id: '', label: 'Home' },
+						{ id: 'projects', label: 'Projects' },
+						{ id: 'resume', label: 'Resume' },
+					]}
+				/>
 				<main>
 					<Routes>
 						<Route path="/" element={<Home />} />

@@ -1,7 +1,7 @@
 import React, { JSX, useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
-const navItems: { id: string; label: string }[] = [
+const defaultNavItems: { id: string; label: string }[] = [
 	{ id: '', label: 'Home' },
 	{ id: 'projects', label: 'Projects' },
 	//{ id: 'resume', label: 'Resume' },
@@ -9,7 +9,12 @@ const navItems: { id: string; label: string }[] = [
 	//{ id: 'contact', label: 'Contact' },
 ];
 
-export default function Navbar(): JSX.Element {
+type NavbarProps = {
+	logo?: string;
+	navItems?: { id: string; label: string }[];
+};
+
+export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems }: NavbarProps): JSX.Element {
 const [isOpen, setIsOpen] = useState(false);
 	const [active, setActive] = useState<string>('');
 
@@ -46,7 +51,7 @@ const [isOpen, setIsOpen] = useState(false);
 	return (
 		<nav>
 			<div className="nav-container">
-				<div className="logo">Your Name</div>
+				<div className="logo">{logo}</div>
 				<ul className={`nav-links ${isOpen ? 'active' : ''}`}>
 					{navItems.map(item => (
 						<li key={item.id}>
