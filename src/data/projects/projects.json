@@ -1,12 +1,13 @@
 [
 	{
-		"nameID": "solarLeap",
+		"key": "solarLeap",
 		"title": "Solar Leap",
 		"description": "Use the growth power of sunflowers to save your peaceful garden ark",
+		"genre": "3D Platformer",
+		"platform": "Nintendo Switch",
 		"technologies": [
 			"Unity Engine",
 			"C#",
-			"Blueprint",
 			"HLSL"
 		],
 		"imageUrl": [],
@@ -15,12 +16,16 @@
 		"duration": "9 months"
 	},
  	{
-		"nameID": "gyaruRPG",
+		"key": "gyaruRPG",
 		"title": "Gyaru Ultimate Revenge",
-		"description": "The chaos induced adventures of a gyaru fighting against the conformism in a dystopian Kyoto",
+		"description": "The chaos induced adventures of a gyaru fighting against conformism in a dystopian Kyoto",
+		"genre": "Turn-based RPG",
+		"platform": "PC",
 		"technologies": [
 			"Unreal Engine",
-			"Blueprint"
+			"Blueprint",
+			"C++",
+			"HLSL"
 		],
 		"imageUrl": [],
 		"eyeCatcherUrl": "",
@@ -28,9 +33,11 @@
 		"duration": "3 months"
 	},
 	{
-		"nameID": "ballinBrawl",
+		"key": "ballinBrawl",
 		"title": "Ballin Brawl",
 		"description": "Turn based rpg meets pools, chaos ensues",
+		"genre": "Strategy",
+		"platform": "Mobile",
 		"technologies": [
 			"Unity Engine",
 			"C#"

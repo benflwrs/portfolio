@@ -1,8 +1,9 @@
-// src/types/Project.ts
 export interface Project {
-  nameID: string;
+  key: string;
   title: string;
   description: string;
+  genre: string;
+  platform: string;
   technologies: string[];
   imageUrl: string[];
   eyeCatcherUrl: string;

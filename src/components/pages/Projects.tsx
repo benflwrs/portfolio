@@ -22,8 +22,7 @@ export function ProjectGrid({ projects }: { projects: Project[] }): JSX.Element 
 			{projects.map((project, index) => (
 				<ProjectCard
 					index={index}
-					title={project.title}
-					description={project.title}
+					projectData={project}
 				/>
 			))
 			}

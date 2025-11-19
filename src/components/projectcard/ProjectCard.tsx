@@ -1,22 +1,19 @@
 import React, { JSX } from 'react';
 import './ProjectCard.css';
+import { Project } from 'types/Project';
 
 type ProjectCardProps = {
-    title: string;
-    description: string;
-    thumbnail?: React.ReactNode;
     index?: number;
     href?: string;
+    projectData: Project;
     onClick?: () => void;
 };
 
 export default function ProjectCard({
-    title,
-    description,
-    thumbnail,
     index = 1,
-    href,
+	href,
     onClick,
+    projectData,
 }: ProjectCardProps): JSX.Element {
     const inner = (
         <div
@@ -27,17 +24,17 @@ export default function ProjectCard({
             onKeyDown={(e) => { if (e.key === 'Enter' && onClick) onClick(); }}
         >
             <div className="project-thumbnail dyn-element">
-                {thumbnail ?? String(index).padStart(2, '0')}
+                {projectData.eyeCatcherUrl ?? String(index).padStart(2, '0')}
             </div>
             <div className="project-info dyn-element">
-                <h3>{title}</h3>
-                <p>{description}</p>
-				{/*<div className="technologies">
-					<span className="tech-tag">C#</span>
-					<span className="tech-tag">C++</span>
-					<span className="tech-tag">Unreal</span>
-					<span className="tech-tag">Unity Engine</span>
-				</div>*/}
+                <h3>{projectData.title}</h3>
+                <p className='platform'>{projectData.platform}</p>
+                <p className='description'>{projectData.description}</p>
+				<div className="technologies">
+					{projectData.technologies.map(name => (
+						<span className="tech-tag">{name}</span>
+					))}
+				</div>
             </div>
         </div>
     );

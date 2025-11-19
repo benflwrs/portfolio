@@ -34,14 +34,57 @@
 
 .project-info h3 {
 	font-size: 1.3rem;
-	margin-bottom: 0.7rem;
 	font-weight: 600;
+	margin-bottom: 0.2rem;
 }
 
-.project-info p {
+.project-info .platform {
+	font-size: 1.0rem;
+	font-weight: 10;
+	color: rgb(233, 233, 233);
+	margin-bottom: 0.2rem;
+}
+
+.project-info .description {
 	color: #888;
 	font-size: 0.95rem;
 	line-height: 1.6;
+	min-height: 50px;
+	max-height: 50px;
+	margin: 0.5rem 0rem;
+}
+
+.project-info .technologies {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 1.5rem 0;
+	align-items: stretch;
+	justify-content: flex-start;
+}
+
+.project-info .tech-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 0.9rem; /* horizontal padding kept, vertical controlled by fixed height */
+	height: 40px;
+	min-height: 40px;
+	border: 1px solid #333;
+	border-radius: 50px;
+	font-size: 0.9rem;
+	color: #ccc;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: all 0.3s;
+	flex: 0 1 auto;
+}
+
+.project-info .tech-tag:hover {
+	border-color: #666;
+	color: #fff;
 }
 
 
