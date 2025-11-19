@@ -1,0 +1,178 @@
+ /* About Section */
+ #about {
+ 	position: relative;
+ 	padding: 0;
+ 	overflow: hidden;
+ }
+
+ .bg-gif {
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	object-fit: cover;
+ 	opacity: 0.15;
+ 	filter: grayscale(100%);
+ }
+
+ .about-content {
+ 	position: relative;
+ 	z-index: 1;
+ 	text-align: center;
+ 	padding: 0 5%;
+ }
+
+ .about-content h1 {
+ 	font-size: clamp(2.5rem, 6vw, 5rem);
+ 	font-weight: 700;
+ 	margin-bottom: 1.5rem;
+ 	letter-spacing: -2px;
+ }
+
+ .about-content p {
+ 	font-size: clamp(1.1rem, 2vw, 1.4rem);
+ 	color: #aaa;
+ 	max-width: 700px;
+ 	margin: 0 auto;
+ 	line-height: 1.8;
+ }
+
+ /* Projects Section */
+ #projects {
+ 	background: #0a0a0a;
+ 	padding: 3rem 10%;
+ }
+
+ /* Background Section */
+ #background {
+ 	min-height: auto;
+ 	padding: 5rem 5%;
+ 	background: #000;
+ }
+
+ .background-content {
+ 	display: grid;
+ 	grid-template-columns: 250px 1fr;
+ 	gap: 3rem;
+ 	align-items: center;
+ 	margin-bottom: 2.5rem;
+ }
+
+ .profile-image {
+ 	width: 250px;
+ 	height: 250px;
+ 	border-radius: 50%;
+ 	overflow: hidden;
+ 	border: 2px solid #222;
+ }
+
+ .profile-image img {
+ 	width: 100%;
+ 	height: 100%;
+ 	object-fit: cover;
+ }
+
+ .background-text h2 {
+ 	font-size: 1.8rem;
+ 	margin-bottom: 1.2rem;
+ 	font-weight: 600;
+ }
+
+ .background-text p {
+ 	color: #aaa;
+ 	font-size: 0.95rem;
+ 	line-height: 1.8;
+ 	margin-bottom: 1rem;
+ }
+
+ .technologies {
+ 	display: flex;
+ 	gap: 1rem;
+ 	flex-wrap: wrap;
+ 	justify-content: center;
+ }
+
+ .tech-tag {
+ 	padding: 0.6rem 1.5rem;
+ 	border: 1px solid #333;
+ 	border-radius: 50px;
+ 	font-size: 0.9rem;
+ 	color: #ccc;
+ 	transition: all 0.3s;
+ }
+
+ .tech-tag:hover {
+ 	border-color: #666;
+ 	color: #fff;
+ }
+
+ .section-title {
+ 	font-size: clamp(2rem, 4vw, 3rem);
+ 	margin-bottom: 2rem;
+ 	font-weight: 700;
+ 	letter-spacing: -1px;
+ }
+
+ /* Contact Section */
+ #contact {
+ 	min-height: auto;
+ 	padding: 4rem 5%;
+ 	background: #000;
+ 	border-top: 1px solid #222;
+ }
+
+ .contact-content {
+ 	text-align: center;
+ }
+
+ .contact-content h2 {
+ 	font-size: 1.8rem;
+ 	margin-bottom: 2rem;
+ 	font-weight: 600;
+ }
+
+ .social-links {
+ 	display: flex;
+ 	gap: 2rem;
+ 	justify-content: center;
+ 	flex-wrap: wrap;
+ }
+
+ .social-links a {
+ 	color: #666;
+ 	transition: all 0.3s;
+ 	display: flex;
+ 	align-items: center;
+ 	gap: 0.5rem;
+ }
+
+ .social-links a:hover {
+ 	color: #fff;
+ 	transform: translateY(-3px);
+ }
+
+ .social-links svg {
+ 	width: 28px;
+ 	height: 28px;
+ }
+
+ @media (max-width: 768px) {
+ 	.background-content {
+ 		grid-template-columns: 1fr;
+ 		text-align: center;
+ 		gap: 2rem;
+ 	}
+
+ 	.profile-image {
+ 		margin: 0 auto;
+ 	}
+
+ 	#background {
+ 		padding: 4rem 5%;
+ 	}
+
+ 	#contact {
+ 		padding: 3rem 5%;
+ 	}
+ }

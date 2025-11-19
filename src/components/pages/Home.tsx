@@ -9,6 +9,8 @@ import { ProjectGrid } from "./Projects";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "types/Navigation";
 
+import './Home.css'
+
 
 function About()
 {

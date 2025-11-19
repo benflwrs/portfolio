@@ -1,5 +1,5 @@
 import React, { JSX } from 'react';
-//import './ProjectCard.css';
+import './ProjectCard.css';
 
 type ProjectCardProps = {
     title: string;
@@ -32,6 +32,12 @@ export default function ProjectCard({
             <div className="project-info dyn-element">
                 <h3>{title}</h3>
                 <p>{description}</p>
+				{/*<div className="technologies">
+					<span className="tech-tag">C#</span>
+					<span className="tech-tag">C++</span>
+					<span className="tech-tag">Unreal</span>
+					<span className="tech-tag">Unity Engine</span>
+				</div>*/}
             </div>
         </div>
     );

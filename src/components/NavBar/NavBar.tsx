@@ -2,6 +2,8 @@ import React, { JSX, useEffect, useState} from 'react';
 import { Link, useLocation} from 'react-router-dom';
 import { Navigation } from '../../types/Navigation';
 
+import './Navbar.css';
+
 const defaultNavItems: { id: string; label: string }[] = [
 	{ id: '', label: 'Home' },
 	{ id: 'projects', label: 'Projects' },
