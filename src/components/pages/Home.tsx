@@ -37,7 +37,7 @@ function Highlights()
 					<h2 className="section-title">Projects</h2>
 					<ProjectGrid projects={highlights}></ProjectGrid>
 					<div className='hor-display m-30px'>
-						<MainButton onClick={() => Navigation.To('/projects')}> See all projects</MainButton>
+						<MainButton href= "/projects" onClick={() => Navigation.To('/projects')}> See all projects</MainButton>
 					</div>
 				</div>
 			</section>

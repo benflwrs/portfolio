@@ -2,27 +2,29 @@ import React from 'react';
 import './MainButton.css';
 
 interface MainButtonProps {
-  children?: React.ReactNode;
-  onClick?: () => void;
-  disabled?: boolean;
-  className?: string;
+	children?: React.ReactNode;
+	onClick?: () => void;
+	href?: string;
+	className?: string;
 }
 
 const MainButton: React.FC<MainButtonProps> = ({
-  children = 'Click Me',
-  onClick,
-  disabled = false,
-  className = '',
+	children = 'Click Me',
+	onClick,
+	//  disabled = false,
+	href = '',
+	className = '',
 }) => {
-  return (
-    <button
-      className={`button ${className}`}
-      onClick={onClick}
-      disabled={disabled}
-    >
-      <span>{children}</span>
-    </button>
-  );
+	return (
+		<a
+			href={href}
+			className={`button ${className}`}
+			onClick={onClick}
+		//  disabled={disabled}
+		>
+			<span>{children}</span>
+		</a>
+	);
 };
 
 export default MainButton;

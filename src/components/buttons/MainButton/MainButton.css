@@ -1,4 +1,5 @@
 .button {
+  display: inline-block;
   position: relative;
   padding: 18px 48px;
   font-size: 18px;
@@ -7,11 +8,13 @@
   /*text-transform: uppercase;*/
   color: #ffffff;
   background: #000000;
-  border: 1px solid #444444;;
+  border: 1px solid #444444;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  vertical-align: middle;
 }
 
 .button::before {
@@ -47,7 +50,7 @@
   z-index: 1;
 }
 
-Ripple effect
+/*Ripple effect*/
 .button::after {
   content: '';
   position: absolute;
