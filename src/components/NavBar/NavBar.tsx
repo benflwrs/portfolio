@@ -1,5 +1,5 @@
 import React, { JSX, useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const defaultNavItems: { id: string; label: string }[] = [
 	{ id: '', label: 'Home' },
@@ -15,27 +15,15 @@ type NavbarProps = {
 };
 
 export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems }: NavbarProps): JSX.Element {
-const [isOpen, setIsOpen] = useState(false);
+	const location = useLocation();
+	const [isOpen, setIsOpen] = useState(false);
 	const [active, setActive] = useState<string>('');
 
-	//useEffect(() => {
-	//    const onScroll = () => {
-	//        let current = '';
-	//        navItems.forEach(item => {
-	//            const el = document.getElementById(item.id);
-	//            if (!el) return;
-	//            const sectionTop = el.offsetTop;
-	//            if (window.pageYOffset >= sectionTop - 200) {
-	//                current = item.id;
-	//            }
-	//        });
-	//        setActive(current);
-	//    };
-
-	//    window.addEventListener('scroll', onScroll, { passive: true });
-	//    onScroll();
-	//    return () => window.removeEventListener('scroll', onScroll);
-	//}, []);
+	// Sync active state with current route on mount and when location changes
+	useEffect(() => {
+		const currentPath = location.pathname.slice(1); // Remove leading '/'
+		setActive(currentPath);
+	}, [location.pathname]);
 
 	const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
 		//e.preventDefault();

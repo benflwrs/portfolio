@@ -2,6 +2,13 @@ import { JSX } from "react";
 
 import MainButton from '../buttons/MainButton/MainButton'; // Add this import
 import ProjectCard from '../projectcard/ProjectCard'; // Add this import
+import { DataHandler } from "types/DataHandler";
+import { Project } from "types/Project";
+import { ProjectGrid } from "./Projects";
+
+
+import { useNavigate } from "react-router-dom";
+
 
 function About()
 {
@@ -16,31 +23,19 @@ function About()
 	);
 }
 
-function Projects()
+function Highlights()
 {
+	const highlights:Project[] = DataHandler.projects.slice(-3);
+	const navigate = useNavigate();
+
+
 	return(
 		<section id="projects">
 				<div className="container">
-					<h2 className="section-title">Selected Work</h2>
-					<div className="projects-grid">
-						<ProjectCard
-							index={1}
-							title="Project Alpha"
-							description="A minimalist e-commerce platform focusing on UX and modern UI."
-						/>
-						<ProjectCard
-							index={2}
-							title="Project Beta"
-							description="A minimalist e-commerce platform focusing on UX and modern UI."
-						/>
-						<ProjectCard
-							index={3}
-							title="Project Gamma"
-							description="A minimalist e-commerce platform focusing on UX and modern UI."
-						/>
-					</div>
+					<h2 className="section-title">Projects</h2>
+					<ProjectGrid projects={highlights}></ProjectGrid>
 					<div className='hor-display m-30px'>
-						<MainButton> See all projects</MainButton>
+						<MainButton onClick={() => navigate('/projects')}> See all projects</MainButton>
 					</div>
 				</div>
 			</section>
@@ -112,7 +107,7 @@ export default function Home(): JSX.Element
 	return(
 		<>
 			<About />
-			<Projects />
+			<Highlights />
 			<Background />
 			<Contact />
 		</>
