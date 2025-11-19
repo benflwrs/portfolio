@@ -20,16 +20,16 @@ export default function ProjectCard({
 }: ProjectCardProps): JSX.Element {
     const inner = (
         <div
-            className="project-card"
+            className="project-card dyn-element"
             role={onClick ? 'button' : undefined}
             tabIndex={0}
             onClick={onClick}
             onKeyDown={(e) => { if (e.key === 'Enter' && onClick) onClick(); }}
         >
-            <div className="project-thumbnail">
+            <div className="project-thumbnail dyn-element">
                 {thumbnail ?? String(index).padStart(2, '0')}
             </div>
-            <div className="project-info">
+            <div className="project-info dyn-element">
                 <h3>{title}</h3>
                 <p>{description}</p>
             </div>

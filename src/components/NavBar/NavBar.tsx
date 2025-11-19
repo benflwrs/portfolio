@@ -1,12 +1,11 @@
 import React, { JSX, useEffect, useState} from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
+import { Navigation } from '../../types/Navigation';
 
 const defaultNavItems: { id: string; label: string }[] = [
 	{ id: '', label: 'Home' },
 	{ id: 'projects', label: 'Projects' },
-	//{ id: 'resume', label: 'Resume' },
-	//{ id: 'background', label: 'Background' },
-	//{ id: 'contact', label: 'Contact' },
+
 ];
 
 type NavbarProps = {
@@ -25,10 +24,14 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 		setActive(currentPath);
 	}, [location.pathname]);
 
+	//const navigate = useNavigate();
+
 	const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-		//e.preventDefault();
+		e.preventDefault();
 		setIsOpen(false);
 		setActive(id);
+
+		Navigation.To(id);
 
 		//const target = document.getElementById(id);
 		//if (target) {
@@ -43,13 +46,14 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 				<ul className={`nav-links ${isOpen ? 'active' : ''}`}>
 					{navItems.map(item => (
 						<li key={item.id}>
-							<Link
-								to={`/${item.id}`}
+							<a
+								//to={`/${item.id}`}
+								href={`/${item.id}`}
 								className={`nav-link${active === item.id ? ' active' : ''}`}
 								onClick={(e) => handleLinkClick(e, item.id)}
 							>
 								{item.label}
-							</Link>
+							</a>
 						</li>
 					))}
 				</ul>

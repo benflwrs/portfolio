@@ -11,6 +11,19 @@
             line-height: 1.6;
         }
 
+        /* Dynamic elements used during navigation transitions */
+        .dyn-element {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 150ms ease, transform 150ms ease;
+        }
+
+        .dyn-element.fade-out {
+            opacity: 0;
+            transform: translateY(8px);
+            pointer-events: none;
+        }
+
 		.hor-display
 		{
 			display: block;

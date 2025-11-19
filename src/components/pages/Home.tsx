@@ -6,8 +6,8 @@ import { DataHandler } from "types/DataHandler";
 import { Project } from "types/Project";
 import { ProjectGrid } from "./Projects";
 
-
 import { useNavigate } from "react-router-dom";
+import { Navigation } from "types/Navigation";
 
 
 function About()
@@ -35,7 +35,7 @@ function Highlights()
 					<h2 className="section-title">Projects</h2>
 					<ProjectGrid projects={highlights}></ProjectGrid>
 					<div className='hor-display m-30px'>
-						<MainButton onClick={() => navigate('/projects')}> See all projects</MainButton>
+						<MainButton onClick={() => Navigation.To('/projects')}> See all projects</MainButton>
 					</div>
 				</div>
 			</section>
