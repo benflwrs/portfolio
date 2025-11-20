@@ -72,7 +72,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<BrowserRouter>
+			<BrowserRouter basename="/portfolio">
 				<NavigationRegistrar />
 				<Navbar
 					logo="Benjamin Nicolas"
