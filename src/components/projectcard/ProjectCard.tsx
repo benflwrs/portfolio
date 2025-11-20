@@ -1,6 +1,7 @@
 import React, { JSX } from 'react';
 import './ProjectCard.css';
 import { Project } from 'types/Project';
+import { Navigation } from 'types/Navigation';
 
 type ProjectCardProps = {
     index?: number;
@@ -9,19 +10,29 @@ type ProjectCardProps = {
     onClick?: () => void;
 };
 
+const projectURL = "/projects/"
+
+const handleLinkClick = (e: React.MouseEvent<HTMLDivElement>, id: string) => {
+	e.preventDefault();
+
+	Navigation.To(id);
+};
+
 export default function ProjectCard({
     index = 1,
 	href,
-    onClick,
+    //onClick,
     projectData,
 }: ProjectCardProps): JSX.Element {
+
+	const onClick = (e:React.MouseEvent<HTMLDivElement>) => handleLinkClick(e, `${projectURL}${projectData.key}`);
     const inner = (
         <div
             className="project-card dyn-element"
-            role={onClick ? 'button' : undefined}
-            tabIndex={0}
+            role='button'
+            tabIndex={index}
             onClick={onClick}
-            onKeyDown={(e) => { if (e.key === 'Enter' && onClick) onClick(); }}
+            onKeyDown={(e) => { if (e.key === 'Enter' && onClick) onClick(e as any); }}
         >
             <div className="project-thumbnail dyn-element">
                 {projectData.eyeCatcherUrl ?? String(index).padStart(2, '0')}

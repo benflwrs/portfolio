@@ -34,10 +34,12 @@ function Highlights()
 	return(
 		<section id="projects">
 				<div className="container">
-					<h2 className="section-title">Projects</h2>
+					<h2 className="section-title">Highlights</h2>
 					<ProjectGrid projects={highlights}></ProjectGrid>
 					<div className='hor-display m-30px'>
-						<MainButton href= "/projects" onClick={() => Navigation.To('/projects')}> See all projects</MainButton>
+					<MainButton href= "/projects" onClick={() => Navigation.To('/projects')}>
+ 						See all projects
+					</MainButton>
 					</div>
 				</div>
 			</section>
@@ -62,7 +64,8 @@ function Background()
 					<div className="technologies">
 						<span className="tech-tag">C#</span>
 						<span className="tech-tag">C++</span>
-						<span className="tech-tag">Unreal</span>
+						<span className="tech-tag">Typescript</span>
+						<span className="tech-tag">Unreal Engine</span>
 						<span className="tech-tag">Unity Engine</span>
 					</div>
 				</div>

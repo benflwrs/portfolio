@@ -9,6 +9,7 @@ import Projects from './components/pages/Projects';
 
 import { useLocation } from 'react-router-dom';
 import { Navigation } from './types/Navigation';
+import ProjectDetail from 'components/pages/ProjectDetail';
 
 const RouteChangeListener: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
@@ -78,6 +79,7 @@ function App() {
 					navItems={[
 						{ id: '', label: 'Home' },
 						{ id: 'projects', label: 'Projects' },
+						{ id: 'vfx', label: 'VFX' },
 						{ id: 'resume', label: 'Resume' },
 					]}
 				/>
@@ -86,6 +88,7 @@ function App() {
 						<Routes>
 							<Route path="/" element={<Home />} />
 							<Route path="/projects" element={<Projects />} />
+							<Route path="/projects/:projectId" element={<ProjectDetail />} />
 						</Routes>
 					</main>
 				</RouteChangeListener>

@@ -8,6 +8,11 @@ interface MainButtonProps {
 	className?: string;
 }
 
+const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, callBack?: () => void) => {
+		e.preventDefault();
+		if (callBack) callBack();
+	};
+
 const MainButton: React.FC<MainButtonProps> = ({
 	children = 'Click Me',
 	onClick,
@@ -19,7 +24,8 @@ const MainButton: React.FC<MainButtonProps> = ({
 		<a
 			href={href}
 			className={`button ${className}`}
-			onClick={onClick}
+			onClick={(e) => handleLinkClick(e, onClick)}
+
 		//  disabled={disabled}
 		>
 			<span>{children}</span>

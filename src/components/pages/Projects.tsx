@@ -9,7 +9,7 @@ function List(): JSX.Element
 	return(
 		<section id="projects">
 				<div className="container">
-					<h2 className="section-title">Selected Work</h2>
+					<h2 className="section-title">Projects</h2>
 					<ProjectGrid projects={DataHandler.projects}></ProjectGrid>
 				</div>
 			</section>

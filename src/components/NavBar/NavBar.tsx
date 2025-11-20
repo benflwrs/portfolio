@@ -35,10 +35,6 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 
 		Navigation.To(id);
 
-		//const target = document.getElementById(id);
-		//if (target) {
-		//	target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-		//}
 	};
 
 	return (
