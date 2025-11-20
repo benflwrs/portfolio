@@ -2,6 +2,7 @@ import React, { JSX } from 'react';
 import './ProjectCard.css';
 import { Project } from 'types/Project';
 import { Navigation } from 'types/Navigation';
+import CustomLink from 'components/CustomLink';
 
 type ProjectCardProps = {
     index?: number;
@@ -50,13 +51,13 @@ export default function ProjectCard({
         </div>
     );
 
-    if (href) {
+    //if (true) {
         return (
-            <a className="project-link" href={href} target="_blank" rel="noreferrer">
+            <CustomLink className="project-link" to={`${projectURL}${projectData.key}`}>
                 {inner}
-            </a>
+            </CustomLink>
         );
-    }
+    //}
 
-    return inner;
+    //return inner;
 }

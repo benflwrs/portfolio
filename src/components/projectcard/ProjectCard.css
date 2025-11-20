@@ -4,6 +4,11 @@
 	gap: 2.5rem;
 }
 
+.project-link {
+	text-decoration: none;
+	color: inherit;
+}
+
 .project-card {
 	background: #111;
 	border: 1px solid #222;

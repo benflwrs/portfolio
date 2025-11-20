@@ -3,6 +3,7 @@ import ProjectCard from "../projectcard/ProjectCard";
 import MainButton from "../buttons/MainButton/MainButton";
 import { Project } from "types/Project";
 import { DataHandler } from "types/DataHandler";
+import { Navigation } from "types/Navigation";
 
 function List(): JSX.Element
 {
