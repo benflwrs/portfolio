@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
 import './App.css';
 import Navbar from './components/navbar/Navbar'; // Add this import
@@ -72,7 +72,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<BrowserRouter basename={Navigation.basename}>
+			<HashRouter >
 				<NavigationRegistrar />
 				<Navbar
 					logo="Benjamin Nicolas"
@@ -92,7 +92,7 @@ function App() {
 						</Routes>
 					</main>
 				</RouteChangeListener>
-			</BrowserRouter>
+			</HashRouter>
 		</div>
 	);
 }
