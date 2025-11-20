@@ -1,6 +1,8 @@
 // Lightweight navigation helper that stores a navigate function
 // and emits custom events to coordinate fade animations.
 
+import { useResolvedPath } from "react-router-dom";
+
 export class Navigation {
 	private static _navigate: ((route: string) => void) | null = null;
 
@@ -16,20 +18,22 @@ export class Navigation {
 
 		// Wait for animation to finish before navigating. Keep this in sync with CSS transition duration.
 		const delay = 100; // ms — keep in sync with CSS
-		const normalized = route.startsWith('/') ? route : `/${route}`;
+		//const normalized = route.startsWith('/') ? route : `/${route}`;
 		setTimeout(() => {
 			if (this._navigate) {
-				this._navigate(normalized);
+				this._navigate(route);
 			} else {
 				console.warn('Navigation: navigate function not registered.');
 				// Fallback: change location (causes full reload)
-				window.location.pathname = normalized;
+				window.location.pathname = route;
 			}
 		}, delay);
 	}
 
-	static GetHREF(href:string) : string
-	{
-		return(`${Navigation.basename}${href}`);
+	static GetHashPath(route: string): string {
+		// Normalize route to ensure it starts with /
+		const normalized = route.startsWith('/') ? route : `/${route}`;
+		// For HashRouter, the path is: basename + #/ + route
+		return `${this.basename}/#${normalized}`;
 	}
 }

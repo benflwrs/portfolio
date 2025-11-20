@@ -3,6 +3,7 @@ import { Link, useLocation} from 'react-router-dom';
 import { Navigation } from '../../types/Navigation';
 
 import './Navbar.css';
+import CustomLink from 'components/CustomLink';
 
 const defaultNavItems: { id: string; label: string }[] = [
 	{ id: '', label: 'Home' },
@@ -29,10 +30,10 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 	//const navigate = useNavigate();
 
 	const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-		e.preventDefault();
+		//e.preventDefault();
 		setIsOpen(false);
 		setActive(id);
-		Navigation.To(id);
+		//Navigation.To(id);
 	};
 
 	return (
@@ -42,14 +43,22 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 				<ul className={`nav-links ${isOpen ? 'active' : ''}`}>
 					{navItems.map(item => (
 						<li key={item.id}>
-							<a
+							{/*<a
 								//to={`/${item.id}`}
 								href={Navigation.GetHREF(`/${item.id}`)}
 								className={`nav-link${active === item.id ? ' active' : ''}`}
 								onClick={(e) => handleLinkClick(e, item.id)}
 							>
 								{item.label}
-							</a>
+							</a>*/}
+							<CustomLink
+								//href={Navigation.GetHREF(`/${item.id}`)}
+								to={item.id}
+								className={`nav-link${active === item.id ? ' active' : ''}`}
+								onClick={() => handleLinkClick}
+							>
+								{item.label}
+							</CustomLink>
 						</li>
 					))}
 				</ul>

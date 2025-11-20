@@ -6,7 +6,7 @@ import { DataHandler } from "types/DataHandler";
 import { Project } from "types/Project";
 import { ProjectGrid } from "./Projects";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useResolvedPath } from "react-router-dom";
 import { Navigation } from "types/Navigation";
 
 import './Home.css'
@@ -37,7 +37,7 @@ function Highlights()
 					<h2 className="section-title">Highlights</h2>
 					<ProjectGrid projects={highlights}></ProjectGrid>
 					<div className='hor-display m-30px'>
-					<MainButton href= {Navigation.GetHREF("/projects")} onClick={() => Navigation.To('/projects')}>
+					<MainButton href= {Navigation.GetHashPath('/projects')} onClick={() => Navigation.To('/projects')}>
  						See all projects
 					</MainButton>
 					</div>
