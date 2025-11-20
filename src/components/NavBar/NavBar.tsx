@@ -55,7 +55,7 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 								//href={Navigation.GetHREF(`/${item.id}`)}
 								to={item.id}
 								className={`nav-link${active === item.id ? ' active' : ''}`}
-								onClick={() => handleLinkClick}
+								onClick={(e:React.MouseEvent<HTMLAnchorElement>) => handleLinkClick(e, item.id)}
 							>
 								{item.label}
 							</CustomLink>

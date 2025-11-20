@@ -6,13 +6,13 @@ import { Navigation } from "types/Navigation";
 interface CustomLinkProps {
 	to?: string;
 	children?: React.ReactNode;
-	onClick?: () => void;
+	onClick?: (e:any) => void;
 	className?: string;
 }
 
-const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, to:string, callBack?: () => void) => {
+const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, to:string, callBack?: (e: any) => void) => {
 		e.preventDefault();
-		if (callBack) callBack();
+		if (callBack) callBack(e);
 		Navigation.To(to)
 	};
 
