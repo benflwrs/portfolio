@@ -8,6 +8,8 @@ export class Navigation {
 		this._navigate = navigateFn;
 	}
 
+	static basename:string = "/portfolio";
+
 	static To(route: string) {
 		// Tell page elements to start fade-out
 		window.dispatchEvent(new CustomEvent('nav:start'));
@@ -24,5 +26,10 @@ export class Navigation {
 				window.location.pathname = normalized;
 			}
 		}, delay);
+	}
+
+	static GetHREF(href:string) : string
+	{
+		return(`${Navigation.basename}${href}`);
 	}
 }

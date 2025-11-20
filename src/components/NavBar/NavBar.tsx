@@ -32,9 +32,7 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 		e.preventDefault();
 		setIsOpen(false);
 		setActive(id);
-
 		Navigation.To(id);
-
 	};
 
 	return (
@@ -46,7 +44,7 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 						<li key={item.id}>
 							<a
 								//to={`/${item.id}`}
-								href={`/${item.id}`}
+								href={Navigation.GetHREF(`/${item.id}`)}
 								className={`nav-link${active === item.id ? ' active' : ''}`}
 								onClick={(e) => handleLinkClick(e, item.id)}
 							>
