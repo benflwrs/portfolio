@@ -11,7 +11,6 @@
 			"HLSL"
 		],
 		"imageUrl": [],
-		"eyeCatcherUrl": "eyecatcher.gif",
 		"completedDate": "2025-05-21",
 		"duration": "9 months"
 	},
@@ -28,7 +27,6 @@
 			"HLSL"
 		],
 		"imageUrl": [],
-		"eyeCatcherUrl": "",
 		"completedDate": "2024-03-15",
 		"duration": "3 months"
 	},
@@ -43,7 +41,6 @@
 			"C#"
 		],
 		"imageUrl": [],
-		"eyeCatcherUrl": "",
 		"completedDate": "2024-04-15",
 		"duration": "2 months"
 	}

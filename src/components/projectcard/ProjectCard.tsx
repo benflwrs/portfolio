@@ -1,6 +1,6 @@
 import React, { JSX } from 'react';
 import './ProjectCard.css';
-import { Project } from 'types/Project';
+import { ProjectData } from 'types/ProjectData';
 import { Navigation } from 'types/Navigation';
 import CustomLink from 'components/CustomLink';
 import { DataHandler } from 'types/DataHandler';
@@ -8,7 +8,7 @@ import { DataHandler } from 'types/DataHandler';
 type ProjectCardProps = {
     index?: number;
     href?: string;
-    projectData: Project;
+    projectData: ProjectData;
     onClick?: () => void;
 };
 
@@ -37,14 +37,10 @@ export default function ProjectCard({
             onKeyDown={(e) => { if (e.key === 'Enter' && onClick) onClick(e as any); }}
         >
             <div className="project-thumbnail dyn-element">
-                {projectData.eyeCatcherUrl ? (
                     <img
-                        src={`${process.env.PUBLIC_URL}/data/projects/${projectData.key}/${projectData.eyeCatcherUrl}`}
-                        alt={projectData.title}
+                        src={DataHandler.getProjectEyecatcher(projectData.key)}
+                        //alt={String(index).padStart(2, '0')}
                     />
-                ) : (
-                    String(index).padStart(2, '0')
-                )}
             </div>
             <div className="project-info dyn-element">
                 <h3>{projectData.title}</h3>

@@ -3,7 +3,7 @@ import { JSX } from "react";
 import MainButton from '../buttons/MainButton/MainButton'; // Add this import
 import ProjectCard from '../projectcard/ProjectCard'; // Add this import
 import { DataHandler } from "types/DataHandler";
-import { Project } from "types/Project";
+import { ProjectData } from "types/ProjectData";
 import { ProjectGrid } from "./Projects";
 
 import { useNavigate, useResolvedPath } from "react-router-dom";
@@ -27,7 +27,7 @@ function About()
 
 function Highlights()
 {
-	const highlights:Project[] = DataHandler.projects.slice(-3);
+	const highlights:ProjectData[] = DataHandler.projects.slice(-3);
 	const navigate = useNavigate();
 
 

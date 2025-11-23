@@ -1,7 +1,7 @@
 import { JSX } from "react";
 import ProjectCard from "../projectcard/ProjectCard";
 import MainButton from "../buttons/MainButton/MainButton";
-import { Project } from "types/Project";
+import { ProjectData } from "types/ProjectData";
 import { DataHandler } from "types/DataHandler";
 import { Navigation } from "types/Navigation";
 
@@ -17,7 +17,7 @@ function List(): JSX.Element
 	);
 }
 
-export function ProjectGrid({ projects }: { projects: Project[] }): JSX.Element {
+export function ProjectGrid({ projects }: { projects: ProjectData[] }): JSX.Element {
 	return (
 		<div className="projects-grid">
 			{projects.map((project, index) => (

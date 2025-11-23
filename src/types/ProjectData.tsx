@@ -1,6 +1,4 @@
-
-
-export interface Project {
+export interface ProjectData {
 	key: string;
 	title: string;
 	description: string;
@@ -8,7 +6,7 @@ export interface Project {
 	platform: string;
 	technologies: string[];
 	imageUrl: string[];
-	eyeCatcherUrl: string;
+	//eyeCatcherUrl: string;
 	completedDate: string;
 	duration: string;
 }
