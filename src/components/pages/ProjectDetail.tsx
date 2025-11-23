@@ -17,6 +17,7 @@ export default function ProjectDetail() {
 
   return(
 		<div className='project-details-container'>
+			<ProjectHero project={project}></ProjectHero>
 			<ProjectDetails project={project}></ProjectDetails>
 		</div>
 	);
@@ -26,28 +27,7 @@ type ProjectDetailProps = {
 	project: ProjectData;
 };
 
-//function AboutProject(props:ProjectDetailProps) : JSX.Element
-//{
-//	const project: ProjectData = props.project;
-
-//	return (
-//		<section id="project-hero">
-//			<img src={DataHandler.getProjectEyecatcher(project.key)} alt="Background" className="project-eyecatcher" />
-//			<div className="about-content">
-//				<img
-//					className="project-logo"
-//					src={DataHandler.getProjectLogo(project.key)}
-//					alt={project.title}
-//				/>
-//				<p className="project-description">
-//					{project.description}
-//				</p>
-//			</div>
-//		</section>
-//  );
-//}
-
-function ProjectDetails(props:ProjectDetailProps) : JSX.Element
+function ProjectHero(props:ProjectDetailProps) : JSX.Element
 {
 	const project: ProjectData = props.project;
 
@@ -71,7 +51,27 @@ function ProjectDetails(props:ProjectDetailProps) : JSX.Element
 					</p>
 				</div>
 			</section>
+		</>
+  	);
+}
 
+function ProjectDetails(props:ProjectDetailProps) : JSX.Element
+{
+	const project: ProjectData = props.project;
+
+	return (
+		<>
+			{/*<ReactMarkdown></ReactMarkdown>*/}
+		</>
+  	);
+}
+
+function ProjectWhatever(props:ProjectDetailProps) : JSX.Element
+{
+	const project: ProjectData = props.project;
+
+	return (
+		<>
 			{/* Overview Section */}
 			<section className="project-overview">
 				<div className="overview-content">
