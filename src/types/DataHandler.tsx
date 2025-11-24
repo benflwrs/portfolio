@@ -30,6 +30,11 @@ export class DataHandler
 		return this.getProjectAsset(projectKey, this.global.logoUrl);
 	}
 
+	static getProjectContentPath(projectKey: string, fileName = 'content.md')
+	{
+		return `${process.env.PUBLIC_URL}${projectDataPath}${projectKey}/${fileName}`;
+	}
+
 	//Global
 	static getGlobalAsset(dataName:string)
 	{

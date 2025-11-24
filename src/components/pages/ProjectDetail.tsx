@@ -2,9 +2,10 @@
 import { useParams } from 'react-router-dom';
 import { ProjectData } from 'types/ProjectData';
 import { DataHandler } from 'types/DataHandler';
-import { JsxElement } from 'typescript';
-import { JSX } from 'react';
+import { JSX, useEffect, useMemo, useState } from 'react';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import './ProjectDetail.css';
+import './Markdown.css';
 
 export default function ProjectDetail() {
 	const { projectId } = useParams<{ projectId: string }>();
@@ -26,6 +27,56 @@ export default function ProjectDetail() {
 type ProjectDetailProps = {
 	project: ProjectData;
 };
+
+const absoluteUrlPattern = /^(?:[a-z]+:)?\/\//i;
+
+function resolveMarkdownAsset(projectKey: string, originalSrc?: string): string | undefined {
+	if (!originalSrc) {
+		return undefined;
+	}
+
+	const trimmed = originalSrc.trim();
+	if (!trimmed) {
+		return undefined;
+	}
+
+	if (absoluteUrlPattern.test(trimmed) || trimmed.startsWith('data:') || trimmed.startsWith('#')) {
+		return trimmed;
+	}
+
+	const publicUrl = process.env.PUBLIC_URL ?? '';
+	if (trimmed.startsWith('/')) {
+		return `${publicUrl}${trimmed}`;
+	}
+
+	const segments = trimmed
+		.replace(/\\/g, '/')
+		.split('/')
+		.filter(segment => segment.length > 0 && segment !== '.');
+
+	while (segments[0] === '..') {
+		segments.shift();
+	}
+
+	if (segments[0]?.toLowerCase() === 'public') {
+		segments.shift();
+	}
+	if (segments[0]?.toLowerCase() === 'data') {
+		segments.shift();
+	}
+	if (segments[0]?.toLowerCase() === 'projects') {
+		segments.shift();
+	}
+
+	const normalizedKey = projectKey.toLowerCase();
+	if (segments[0]?.toLowerCase() === normalizedKey) {
+		segments.shift();
+	}
+
+	const relativePath = segments.join('/');
+
+	return DataHandler.getProjectAsset(projectKey, relativePath);
+}
 
 function ProjectHero(props:ProjectDetailProps) : JSX.Element
 {
@@ -58,12 +109,77 @@ function ProjectHero(props:ProjectDetailProps) : JSX.Element
 function ProjectDetails(props:ProjectDetailProps) : JSX.Element
 {
 	const project: ProjectData = props.project;
+	const [content, setContent] = useState<string>('');
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+	const markdownComponents = useMemo<Components>(() => ({
+		img({ src, alt, ...props }) {
+			const resolvedSrc = resolveMarkdownAsset(project.key, src);
+			return <img {...props} src={resolvedSrc ?? src ?? ''} alt={alt ?? ''} />;
+		},
+	}), [project.key]);
+
+	useEffect(() => {
+		let cancelled = false;
+
+		const loadContent = async () => {
+			try {
+				setIsLoading(true);
+				setError(null);
+
+				const candidates = ['content.md', 'content.mdx'];
+				let text = '';
+				let success = false;
+
+				for (const fileName of candidates) {
+					const response = await fetch(DataHandler.getProjectContentPath(project.key, fileName));
+					if (response.ok) {
+						text = await response.text();
+						success = true;
+						break;
+					}
+				}
+
+				if (!success) {
+					throw new Error(`Failed to load content for ${project.key}`);
+				}
+
+				if (!cancelled) {
+					setContent(text);
+				}
+			} catch (err) {
+				if (!cancelled) {
+					setError('Unable to load project details right now.');
+				}
+			} finally {
+				if (!cancelled) {
+					setIsLoading(false);
+				}
+			}
+		};
+
+		loadContent();
+
+		return () => {
+			cancelled = true;
+		};
+	}, [project.key]);
+
+	if (isLoading) {
+		return <section className="project-details">Loading project details…</section>;
+	}
+
+	if (error) {
+		return <section className="project-details">Content unavailable</section>;
+	}
 
 	return (
-		<>
-			{/*<ReactMarkdown></ReactMarkdown>*/}
-		</>
-  	);
+		<section className="project-details">
+			<div className="markdown-body">
+				<ReactMarkdown components={markdownComponents}>{content}</ReactMarkdown>
+			</div>
+		</section>
+	);
 }
 
 function ProjectWhatever(props:ProjectDetailProps) : JSX.Element
