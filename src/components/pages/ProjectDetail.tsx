@@ -45,47 +45,7 @@ function resolveMarkdownAsset(projectKey: string, originalSrc?: string): string 
 		return undefined;
 	}
 
-	const trimmed = originalSrc.trim();
-	if (!trimmed) {
-		return undefined;
-	}
-
-	if (absoluteUrlPattern.test(trimmed) || trimmed.startsWith('data:') || trimmed.startsWith('#')) {
-		return trimmed;
-	}
-
-	const publicUrl = process.env.PUBLIC_URL ?? '';
-	if (trimmed.startsWith('/')) {
-		return `${publicUrl}${trimmed}`;
-	}
-
-	const segments = trimmed
-		.replace(/\\/g, '/')
-		.split('/')
-		.filter(segment => segment.length > 0 && segment !== '.');
-
-	while (segments[0] === '..') {
-		segments.shift();
-	}
-
-	if (segments[0]?.toLowerCase() === 'public') {
-		segments.shift();
-	}
-	if (segments[0]?.toLowerCase() === 'data') {
-		segments.shift();
-	}
-	if (segments[0]?.toLowerCase() === 'projects') {
-		segments.shift();
-	}
-
-	const normalizedKey = projectKey.toLowerCase();
-	if (segments[0]?.toLowerCase() === normalizedKey) {
-		segments.shift();
-	}
-
-	const relativePath = segments.join('/');
-
-	return DataHandler.getProjectAsset(projectKey, relativePath);
+	return DataHandler.getProjectAsset(projectKey, originalSrc);
 }
 
 function ProjectHero(props:ProjectDetailProps) : JSX.Element

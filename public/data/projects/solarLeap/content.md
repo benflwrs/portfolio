@@ -23,7 +23,3 @@ Describe the challenges you faced during this project.
 ## Results
 
 Describe the outcomes and results of the project.
-
-## Screenshots
-
-![Project Screenshot](logo.png)
