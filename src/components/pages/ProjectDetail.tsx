@@ -19,7 +19,8 @@ export default function ProjectDetail() {
   return(
 		<div className='project-details-container'>
 			<ProjectHero project={project}></ProjectHero>
-			<ProjectDetails project={project}></ProjectDetails>
+			{/*<ProjectDetails project={project}></ProjectDetails>*/}
+			<ProjectWhatever project={project}></ProjectWhatever>
 		</div>
 	);
 }
@@ -27,18 +28,6 @@ export default function ProjectDetail() {
 type ProjectDetailProps = {
 	project: ProjectData;
 };
-
-const absoluteUrlPattern = /^(?:[a-z]+:)?\/\//i;
-
-function isHtmlDocumentResponse(contentType: string | null, text: string): boolean {
-	const normalizedType = contentType?.toLowerCase() ?? '';
-	if (normalizedType.includes('text/html')) {
-		return true;
-	}
-
-	const snippet = text.trimStart().slice(0, 32).toLowerCase();
-	return snippet.startsWith('<!doctype html') || snippet.startsWith('<html');
-}
 
 function resolveMarkdownAsset(projectKey: string, originalSrc?: string): string | undefined {
 	if (!originalSrc) {
@@ -98,27 +87,7 @@ function ProjectDetails(props:ProjectDetailProps) : JSX.Element
 				setError(null);
 				setContent('');
 
-				const candidates = ['content.md', 'content.mdx'];
-				let text = '';
-				let success = false;
-
-				for (const fileName of candidates) {
-					const response = await fetch(DataHandler.getProjectContentPath(project.key, fileName));
-					if (response.ok) {
-						const textCandidate = await response.text();
-						if (isHtmlDocumentResponse(response.headers.get('content-type'), textCandidate)) {
-							continue;
-						}
-
-						text = textCandidate;
-						success = true;
-						break;
-					}
-				}
-
-				if (!success) {
-					throw new Error(`Failed to load content for ${project.key}`);
-				}
+				const text = await DataHandler.fetchProjectContent(project.key);
 
 				if (!cancelled) {
 					setContent(text);
