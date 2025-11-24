@@ -33,8 +33,8 @@ export default function ProjectCard({
             className="project-card dyn-element"
             role='button'
             tabIndex={index}
-            onClick={onClick}
-            onKeyDown={(e) => { if (e.key === 'Enter' && onClick) onClick(e as any); }}
+            //onClick={onClick}
+            //onKeyDown={(e) => { if (e.key === 'Enter' && onClick) onClick(e as any); }}
         >
             <div className="project-thumbnail dyn-element">
                     <img
