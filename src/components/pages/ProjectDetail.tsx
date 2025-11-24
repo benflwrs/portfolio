@@ -30,6 +30,16 @@ type ProjectDetailProps = {
 
 const absoluteUrlPattern = /^(?:[a-z]+:)?\/\//i;
 
+function isHtmlDocumentResponse(contentType: string | null, text: string): boolean {
+	const normalizedType = contentType?.toLowerCase() ?? '';
+	if (normalizedType.includes('text/html')) {
+		return true;
+	}
+
+	const snippet = text.trimStart().slice(0, 32).toLowerCase();
+	return snippet.startsWith('<!doctype html') || snippet.startsWith('<html');
+}
+
 function resolveMarkdownAsset(projectKey: string, originalSrc?: string): string | undefined {
 	if (!originalSrc) {
 		return undefined;
@@ -126,6 +136,7 @@ function ProjectDetails(props:ProjectDetailProps) : JSX.Element
 			try {
 				setIsLoading(true);
 				setError(null);
+				setContent('');
 
 				const candidates = ['content.md', 'content.mdx'];
 				let text = '';
@@ -134,7 +145,12 @@ function ProjectDetails(props:ProjectDetailProps) : JSX.Element
 				for (const fileName of candidates) {
 					const response = await fetch(DataHandler.getProjectContentPath(project.key, fileName));
 					if (response.ok) {
-						text = await response.text();
+						const textCandidate = await response.text();
+						if (isHtmlDocumentResponse(response.headers.get('content-type'), textCandidate)) {
+							continue;
+						}
+
+						text = textCandidate;
 						success = true;
 						break;
 					}
@@ -150,6 +166,7 @@ function ProjectDetails(props:ProjectDetailProps) : JSX.Element
 			} catch (err) {
 				if (!cancelled) {
 					setError('Unable to load project details right now.');
+					setContent('');
 				}
 			} finally {
 				if (!cancelled) {
