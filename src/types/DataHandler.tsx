@@ -4,6 +4,7 @@ import globalData from 'data/global.json';
 
 import { ProjectData } from 'types/ProjectData';
 import { GlobalData } from 'types/GlobalData';
+import { ContentSectionType, ProjectContent } from 'types/ProjectContent';
 
 const projectDataPath = '/data/projects/';
 const globalDataPath = '/data/global/';
@@ -40,16 +41,12 @@ export class DataHandler
 		return this.getProjectAsset(projectKey, this.global.logoUrl);
 	}
 
-	static getProjectContentPath(projectKey: string, fileName = 'content.md')
-	{
-		return `${process.env.PUBLIC_URL}${projectDataPath}${projectKey}/${fileName}`;
-	}
 
 	static async fetchProjectContent(projectKey: string): Promise<string> {
 		const candidates = ['content.md', 'content.mdx'];
 
 		for (const fileName of candidates) {
-			const response = await fetch(this.getProjectContentPath(projectKey, fileName));
+			const response = await fetch(this.getProjectAsset(projectKey, fileName));
 			if (response.ok) {
 				const text = await response.text();
 				if (isHtmlDocumentResponse(response.headers.get('content-type'), text)) {
@@ -60,6 +57,55 @@ export class DataHandler
 		}
 
 		throw new Error(`Failed to load content for ${projectKey}`);
+	}
+
+	static async fetchProjectContentFromJson(projectKey: string, fileName = 'content.json'): Promise<ProjectContent[]> {
+		const jsonPath = this.getProjectAsset(projectKey, fileName);
+		const response = await fetch(jsonPath);
+
+		if (!response.ok) {
+			throw new Error(`Failed to load ${fileName} for ${projectKey}`);
+		}
+
+		const jsonArray: any[] = await response.json();
+
+		if (!Array.isArray(jsonArray)) {
+			throw new Error(`Invalid content.json format for ${projectKey}: expected an array`);
+		}
+
+		// Convert string sectionType to enum and load markdown content
+		const contentArray: ProjectContent[] = [];
+
+		for (const item of jsonArray) {
+			// Convert string to enum
+			let sectionType: ContentSectionType;
+			if (typeof item.sectionType === 'string') {
+				sectionType = ContentSectionType[item.sectionType as keyof typeof ContentSectionType];
+			} else {
+				sectionType = item.sectionType;
+			}
+
+			const content: ProjectContent = {
+				sectionType,
+				title: item.title || '',
+				markdown: item.markdown || '',
+				image: item.image || '',
+				youtubeLink: item.youtubeLink || ''
+			};
+
+			// Load markdown content for text-based sections
+			if (sectionType === ContentSectionType.Text
+				|| sectionType === ContentSectionType.TextImage
+				|| sectionType === ContentSectionType.ImageText
+			) {
+				const markdown = await DataHandler.fetchProjectContent(projectKey);
+				content.markdown = markdown;
+			}
+
+			contentArray.push(content);
+		}
+
+		return contentArray;
 	}
 
 	//Global
