@@ -91,7 +91,7 @@
 /* Project Sections - Text and Image Layout */
 .project-section {
 	padding: 5rem 5%;
-	background: #000;
+	background: #0a0a0a;
 }
 
 .project-section:nth-of-type(even) {
