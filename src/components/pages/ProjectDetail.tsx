@@ -143,7 +143,7 @@ function GetProjectSection(projectData: ProjectData, projectContent:ProjectConte
 			return ContentVideo(projectData, projectContent);
 		default:
 			return(<></>);
-	}
+ 	}
 }
 
 function ContentText(projectData: ProjectData, projectContent:ProjectContent): JSX.Element {

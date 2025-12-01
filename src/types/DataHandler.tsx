@@ -59,7 +59,29 @@ export class DataHandler
 		throw new Error(`Failed to load content for ${projectKey}`);
 	}
 
-	static async fetchProjectContentFromJson(projectKey: string, fileName = 'content.json'): Promise<ProjectContent[]> {
+	static extractMarkdownSection(fullMarkdown: string, sectionId: string): string {
+		// Use @Section format as identifier (e.g., "@MyContribution")
+		const cleanId = sectionId.startsWith('@') ? sectionId.slice(1) : sectionId;
+
+		// Match HTML comment as section marker: <!-- @SectionId -->
+		const markerRegex = new RegExp(`<!--\\s*@${cleanId}\\s*-->`, 'i');
+		const match = markerRegex.exec(fullMarkdown);
+
+		if (!match) {
+			return fullMarkdown; // If no section found, return full content
+		}
+
+		const startIndex = match.index + match[0].length;
+
+		// Find the next section marker
+		const nextMarkerRegex = /<!--\s*@\w+\s*-->/;
+		const remainingText = fullMarkdown.slice(startIndex);
+		const nextMatch = nextMarkerRegex.exec(remainingText);
+
+		const endIndex = nextMatch ? startIndex + nextMatch.index : fullMarkdown.length;
+
+		return fullMarkdown.slice(startIndex, endIndex).trim();
+	}	static async fetchProjectContentFromJson(projectKey: string, fileName = 'content.json'): Promise<ProjectContent[]> {
 		const jsonPath = this.getProjectAsset(projectKey, fileName);
 		const response = await fetch(jsonPath);
 
@@ -98,8 +120,15 @@ export class DataHandler
 				|| sectionType === ContentSectionType.TextImage
 				|| sectionType === ContentSectionType.ImageText
 			) {
-				const markdown = await DataHandler.fetchProjectContent(projectKey);
-				content.markdown = markdown;
+				const fullMarkdown = await DataHandler.fetchProjectContent(projectKey);
+
+				// If markdown field starts with @, treat it as a section identifier
+				if (content.markdown.startsWith('@')) {
+					content.markdown = DataHandler.extractMarkdownSection(fullMarkdown, content.markdown);
+				} else {
+					// Otherwise use the full markdown
+					content.markdown = fullMarkdown;
+				}
 			}
 
 			contentArray.push(content);
