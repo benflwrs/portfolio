@@ -1,3 +1,11 @@
+.project-details {
+	background: #050505;
+	padding: 0 0;
+	color: #f1f5f9;
+	display: block;
+	min-height: auto;
+}
+
 /* Project Details Container */
 .project-details-container {
 	margin-top: 73px;
@@ -204,6 +212,7 @@
 		margin-top: 73px;
 	}
 
+
 	.project-hero {
 		min-height: 300px;
 	}
@@ -239,6 +248,7 @@
 }
 
 @media (max-width: 480px) {
+
 	.hero-description {
 		font-size: 1rem;
 	}
