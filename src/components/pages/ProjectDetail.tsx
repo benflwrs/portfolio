@@ -60,6 +60,31 @@ function ProjectHero(props:ProjectDetailProps) : JSX.Element
 					<p className="hero-description">
 						{project.description}
 					</p>
+
+					<div className="project-meta">
+						<div className="meta-item">
+							<span className="meta-label">Genre</span>
+							<span className="meta-value">{project.genre}</span>
+						</div>
+						<div className="meta-item">
+							<span className="meta-label">Platform</span>
+							<span className="meta-value">{project.platform}</span>
+						</div>
+						<div className="meta-item">
+							<span className="meta-label">Duration</span>
+							<span className="meta-value">{project.duration}</span>
+						</div>
+						<div className="meta-item">
+							<span className="meta-label">Completed</span>
+							<span className="meta-value">
+								{new Date(project.completedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}
+							</span>
+						</div>
+						<div className="meta-item">
+							<span className="meta-label">Team Size</span>
+							<span className="meta-value">{project.teamSize}</span>
+						</div>
+					</div>
 				</div>
 			</section>
 		</>

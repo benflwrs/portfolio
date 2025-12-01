@@ -97,6 +97,38 @@
 	letter-spacing: 0.1rem;
 }
 
+.project-meta {
+	display: flex;
+	justify-content: center;
+	gap: 3rem;
+	margin-top: 3rem;
+	flex-wrap: wrap;
+	padding-top: 2rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meta-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.meta-label {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	color: #888;
+	font-weight: 600;
+}
+
+.meta-value {
+	font-size: 1.1rem;
+	color: #f1f5f9;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+}
+
 /* Overview Section - Half Screen, Centered */
 .project-overview {
 	min-height: 50vh;
@@ -257,6 +289,11 @@
 	.project-logo {
 		max-width: 200px;
 		margin-bottom: 1.5rem;
+	}
+
+	.project-meta {
+		gap: 1.5rem;
+		margin-top: 2rem;
 	}
 
 	.project-overview {

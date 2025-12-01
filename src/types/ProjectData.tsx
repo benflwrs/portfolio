@@ -6,7 +6,7 @@ export interface ProjectData {
 	platform: string;
 	technologies: string[];
 	imageUrl: string[];
-	//eyeCatcherUrl: string;
 	completedDate: string;
 	duration: string;
+	teamSize: number;
 }
