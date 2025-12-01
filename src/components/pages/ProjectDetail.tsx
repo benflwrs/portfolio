@@ -105,8 +105,21 @@ function ProjectDetails(props: ProjectDetailProps): JSX.Element {
 		};
 	}, [project.key]);
 
-	if (isLoading || error) {
+	if (isLoading) {
 		return <></>;
+	}
+
+	if (error) {
+		return (
+			<div className="fade-in">
+				<ProjectHero project={project}></ProjectHero>
+				<section className="project-details">
+					<div className="project-unavailable">
+						<h2>Info is unavailable for this project</h2>
+					</div>
+				</section>
+			</div>
+		);
 	}
 
 	return (

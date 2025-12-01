@@ -27,6 +27,22 @@
 	margin: 3.1rem 0;
 }
 
+.project-unavailable {
+	text-align: center;
+	padding: 5rem 2rem;
+	min-height: 50vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.project-unavailable h2 {
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	color: #666;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+}
+
 /* Project Details Container */
 .project-details-container {
 	margin-top: 73px;
