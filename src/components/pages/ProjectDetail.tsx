@@ -119,6 +119,7 @@ function ProjectDetails(props: ProjectDetailProps): JSX.Element {
 			{contentSections.map((content, index) => (
 				<div key={index}>
 					{GetProjectSection(project, content)}
+					{index < contentSections.length - 1 && <SectionSeparator />}
 				</div>
 			))}
 		</section>
@@ -219,4 +220,15 @@ function ContentVideo(projectData: ProjectData, projectContent:ProjectContent): 
 			</section>
 		</>
 	);
+}
+
+function SectionSeparator(): JSX.Element {
+  return (
+    <div style={{
+      width: '60%',
+      height: '1px',
+      background: 'linear-gradient(to right, transparent, #333, transparent)',
+      margin: '0 auto'
+    }}></div>
+  );
 }

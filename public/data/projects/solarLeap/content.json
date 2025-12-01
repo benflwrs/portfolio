@@ -14,11 +14,10 @@
 		"youtubeLink": ""
 	},
 	{
-		"sectionType": 2,
+		"sectionType": 1,
 		"title": "My Contribution",
 		"markdown": "@Otherstuff",
 		"image": "eyecatcher.gif",
 		"youtubeLink": ""
 	}
-
 ]
