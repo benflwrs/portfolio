@@ -20,7 +20,6 @@ export default function ProjectDetail() {
 
   return(
 		<div className='project-details-container'>
-			<ProjectHero project={project}></ProjectHero>
 			<ProjectDetails project={project}></ProjectDetails>
 			{/*<ProjectWhatever project={project}></ProjectWhatever>*/}
 		</div>
@@ -106,15 +105,13 @@ function ProjectDetails(props: ProjectDetailProps): JSX.Element {
 		};
 	}, [project.key]);
 
-	if (isLoading) {
-		return <section className="project-details">Loading project details…</section>;
-	}
-
-	if (error) {
-		return <section className="project-details">Content unavailable</section>;
+	if (isLoading || error) {
+		return <></>;
 	}
 
 	return (
+	<div className="fade-in">
+		<ProjectHero project={project}></ProjectHero>
 		<section className="project-details">
 			{contentSections.map((content, index) => (
 				<div key={index}>
@@ -123,6 +120,7 @@ function ProjectDetails(props: ProjectDetailProps): JSX.Element {
 				</div>
 			))}
 		</section>
+	</div>
 	);
 }
 
