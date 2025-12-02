@@ -48,7 +48,7 @@
  #background {
  	min-height: auto;
  	padding: 5rem 10%;
- 	background: #000;
+ 	background: var(--background-color);
  }
 
  .background-content {
@@ -153,8 +153,8 @@
  }
 
  .social-links svg {
- 	width: 28px;
- 	height: 28px;
+ 	width: 40px;
+ 	height: 40px;
  }
 
  @media (max-width: 768px) {
@@ -176,5 +176,8 @@
  		padding: 3rem 5%;
  	}
 
-
+	.social-links svg {
+ 		width: 28px;
+ 		height: 28px;
+ 	}
  }

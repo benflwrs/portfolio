@@ -8,4 +8,5 @@ export interface GlobalData {
 	github: string;
 	linkedin: string;
 	twitter: string;
+	itchio: string;
 }

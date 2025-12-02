@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { JSX, useEffect, useState } from "react";
 
 import MainButton from '../buttons/MainButton/MainButton'; // Add this import
 import ProjectCard from '../projectcard/ProjectCard'; // Add this import
@@ -11,6 +11,9 @@ import { Navigation } from "types/Navigation";
 
 import './Home.css'
 import { Footer } from "components/Footer";
+import { backgroundInfo, heroHome, technologies } from 'data/markdowns/hero-home';
+import ReactMarkdown from "react-markdown";
+import { SectionSeparator } from "components/Separator";
 
 
 function About()
@@ -19,8 +22,7 @@ function About()
 	<section id="about">
 				<img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" alt="Background" className="bg-gif" />
 				<div className="about-content">
-					<h1>Hello, I'm a Programmer</h1>
-					<p>I create minimalist digital experiences that blend aesthetics with functionality. Specialized in web design, branding, and user interfaces.</p>
+					<ReactMarkdown>{heroHome}</ReactMarkdown>
 				</div>
 	</section>
 	);
@@ -57,20 +59,14 @@ function Background()
 							<img src="https://via.placeholder.com/250" alt="Profile" />
 						</div>
 						<div className="background-text">
-							<h2>Background & Education</h2>
-							<p>I graduated with a degree in Computer Science, specializing in game development and interactive media. Over the years, I've worked on various projects ranging from indie games to enterprise applications, always focusing on creating elegant and performant solutions.</p>
-							<p>My passion lies in bridging the gap between creative vision and technical execution, bringing ideas to life through code and design.</p>
+							<ReactMarkdown>{backgroundInfo}</ReactMarkdown>
 						</div>
 					</div>
 					<div className="technologies">
-						<span className="tech-tag">C#</span>
-						<span className="tech-tag">C++</span>
-						<span className="tech-tag">Typescript</span>
-						<span className="tech-tag">Unreal Engine</span>
-						<span className="tech-tag">Unity Engine</span>
-						<span className="tech-tag">Godot Engine</span>
-						<span className="tech-tag">Git</span>
-						<span className="tech-tag">Perforce</span>
+						{technologies && technologies.map((tech) => (
+							//<span key={tech} className="tech-tag">{tech}</span>
+							<span className="tech-tag">{tech}</span>
+						))}
 					</div>
 				</div>
 			</section>
@@ -82,9 +78,11 @@ export default function Home(): JSX.Element
 	return(
 		<>
 			<About />
+			<SectionSeparator></SectionSeparator>
 			<Highlights />
+			<SectionSeparator></SectionSeparator>
 			<Background />
-			<Footer></Footer>
+			<Footer/>
 		</>
 	);
 }
