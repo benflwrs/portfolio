@@ -12,4 +12,4 @@ Over the years, I've worked on various projects ranging from indie games to ente
 My passion lies in bridging the gap between creative vision and technical execution, bringing ideas to life through code and design.
 `;
 
-export const technologies:string[] = ["C#", "C++", "TypeScript", "Unreal Engine", "Godot Engine", "Git", "Perforce"];
+export const technologies:string[] = ["C#", "C++", "TypeScript", "Unreal Engine", "Unity Engine", "Godot Engine", "Git", "Perforce"];

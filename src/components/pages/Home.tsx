@@ -10,7 +10,7 @@ import { useNavigate, useResolvedPath } from "react-router-dom";
 import { Navigation } from "types/Navigation";
 
 import './Home.css'
-import { Footer } from "components/Footer";
+import { Footer, Socials } from "components/Footer";
 import { backgroundInfo, heroHome, technologies } from 'data/markdowns/hero-home';
 import ReactMarkdown from "react-markdown";
 import { SectionSeparator } from "components/Separator";
@@ -23,6 +23,10 @@ function About()
 				<img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" alt="Background" className="bg-gif" />
 				<div className="about-content">
 					<ReactMarkdown>{heroHome}</ReactMarkdown>
+
+					<div className="m-3_5rem ">
+						<Socials ></Socials>
+					</div>
 				</div>
 	</section>
 	);
