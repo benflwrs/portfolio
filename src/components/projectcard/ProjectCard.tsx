@@ -43,7 +43,12 @@ export default function ProjectCard({
                     />
             </div>
             <div className="project-info dyn-element">
-                <h3>{projectData.title}</h3>
+                <div className="project-header">
+                    <h3>{projectData.title}</h3>
+                    <span className="project-date">
+                        {new Date(projectData.completedDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                    </span>
+                </div>
                 <p className='platform'>{projectData.platform}</p>
                 <p className='description'>{projectData.description}</p>
 				<div className="technologies">
