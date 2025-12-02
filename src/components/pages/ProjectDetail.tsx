@@ -75,7 +75,7 @@ function ProjectHero(props:ProjectDetailProps) : JSX.Element
 							<span className="meta-value">{project.duration}</span>
 						</div>
 						<div className="meta-item">
-							<span className="meta-label">Completed</span>
+							<span className="meta-label">Date</span>
 							<span className="meta-value">
 								{new Date(project.completedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}
 							</span>
