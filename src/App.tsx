@@ -10,6 +10,7 @@ import Projects from './components/pages/Projects';
 import { useLocation } from 'react-router-dom';
 import { Navigation } from './types/Navigation';
 import ProjectDetail from 'components/pages/ProjectDetail';
+import { DataHandler } from 'types/DataHandler';
 
 const RouteChangeListener: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
@@ -75,12 +76,12 @@ function App() {
 			<HashRouter >
 				<NavigationRegistrar />
 				<Navbar
-					logo="Benjamin Nicolas"
+					logo={DataHandler.global.fullName}
 					navItems={[
 						{ id: '', label: 'Home' },
 						{ id: 'projects', label: 'Projects' },
-						{ id: 'vfx', label: 'VFX' },
-						{ id: 'resume', label: 'Resume' },
+						//{ id: 'vfx', label: 'VFX' },
+						//{ id: 'resume', label: 'Resume' },
 					]}
 				/>
 				<RouteChangeListener>

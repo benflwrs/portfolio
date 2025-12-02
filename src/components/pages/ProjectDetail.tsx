@@ -25,7 +25,6 @@ export default function ProjectDetail() {
 			<ProjectHero project={project}></ProjectHero>
 			<ProjectDetails project={project}></ProjectDetails>
 		</div>
-
 	);
 }
 
