@@ -8,6 +8,8 @@ import './ProjectDetail.css';
 //import './Markdown.css';
 import { ContentSectionType, ProjectContent } from 'types/ProjectContent';
 import projectsData from 'data/projects.json';
+import { SectionSeparator } from 'components/Separator';
+import { Footer } from 'components/Footer';
 
 export default function ProjectDetail() {
 	const { projectId } = useParams<{ projectId: string }>();
@@ -19,10 +21,11 @@ export default function ProjectDetail() {
   }
 
   return(
-		<div className='project-details-container'>
+		<div className='project-details-container fade-in'>
+			<ProjectHero project={project}></ProjectHero>
 			<ProjectDetails project={project}></ProjectDetails>
-			{/*<ProjectWhatever project={project}></ProjectWhatever>*/}
 		</div>
+
 	);
 }
 
@@ -136,20 +139,17 @@ function ProjectDetails(props: ProjectDetailProps): JSX.Element {
 
 	if (error) {
 		return (
-			<div className="fade-in">
-				<ProjectHero project={project}></ProjectHero>
-				<section className="project-details">
-					<div className="project-unavailable">
-						<h2>Info is unavailable for this project</h2>
-					</div>
-				</section>
-			</div>
+			<section className="project-details">
+				<div className="project-unavailable">
+					<h2>Info is unavailable for this project</h2>
+				</div>
+				<Footer></Footer>
+			</section>
 		);
 	}
 
 	return (
-	<div className="fade-in">
-		<ProjectHero project={project}></ProjectHero>
+		<>
 		<section className="project-details">
 			{contentSections.map((content, index) => (
 				<div key={index}>
@@ -158,7 +158,8 @@ function ProjectDetails(props: ProjectDetailProps): JSX.Element {
 				</div>
 			))}
 		</section>
-	</div>
+		<Footer></Footer>
+		</>
 	);
 }
 
@@ -256,15 +257,4 @@ function ContentVideo(projectData: ProjectData, projectContent:ProjectContent): 
 			</section>
 		</>
 	);
-}
-
-function SectionSeparator(): JSX.Element {
-  return (
-    <div style={{
-      width: '60%',
-      height: '1px',
-      background: 'linear-gradient(to right, transparent, #333, transparent)',
-      margin: '0 auto'
-    }}></div>
-  );
 }
