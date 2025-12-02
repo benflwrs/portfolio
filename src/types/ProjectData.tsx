@@ -9,4 +9,5 @@ export interface ProjectData {
 	completedDate: string;
 	duration: string;
 	teamSize: number;
+	type: string;
 }

@@ -13,7 +13,8 @@
 		"imageUrl": [],
 		"completedDate": "2025-05-21",
 		"duration": "9 months",
-		"teamSize": 20
+		"teamSize": 20,
+		"type": "game"
 	},
  	{
 		"key": "gyaruRPG",
@@ -30,7 +31,8 @@
 		"imageUrl": [],
 		"completedDate": "2024-03-15",
 		"duration": "3 months",
-		"teamSize": 20
+		"teamSize": 20,
+		"type": "game"
 	},
 	{
 		"key": "ballinBrawl",
@@ -45,6 +47,7 @@
 		"imageUrl": [],
 		"completedDate": "2024-04-15",
 		"duration": "2 months",
-		"teamSize": 8
+		"teamSize": 8,
+		"type": "game"
 	}
 ]
