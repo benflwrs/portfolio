@@ -69,6 +69,8 @@ function Background()
 						<span className="tech-tag">Unreal Engine</span>
 						<span className="tech-tag">Unity Engine</span>
 						<span className="tech-tag">Godot Engine</span>
+						<span className="tech-tag">Git</span>
+						<span className="tech-tag">Perforce</span>
 					</div>
 				</div>
 			</section>
