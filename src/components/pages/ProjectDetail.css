@@ -101,7 +101,7 @@
 	display: flex;
 	justify-content: center;
 	gap: 1rem;
-	margin-top: 3rem;
+	margin-top: 1rem;
 	flex-wrap: nowrap;
 	padding-top: 2rem;
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -132,6 +132,33 @@
 	color: #f1f5f9;
 	font-weight: 500;
 	letter-spacing: 0.02em;
+}
+
+.project-technologies {
+	display: flex;
+	justify-content: center;
+	gap: 0.8rem;
+	margin-top: 2rem;
+	flex-wrap: wrap;
+}
+
+.tech-tag {
+	background: rgba(255, 255, 255, 0.1);
+	color: #e2e8f0;
+	padding: 0.4rem 1rem;
+	border-radius: 20px;
+	font-size: 0.85rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(4px);
+	transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+	background: rgba(255, 255, 255, 0.2);
+	/*transform: translateY(-2px);*/
+	border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Overview Section - Half Screen, Centered */
@@ -298,8 +325,22 @@
 	}
 
 	.project-meta {
-		gap: 1.5rem;
-		margin-top: 2rem;
+		gap: 0.5rem;
+		margin-top: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	.meta-item {
+		padding: 0.5rem;
+		min-width: 80px;
+	}
+
+	.meta-label {
+		font-size: 0.65rem;
+	}
+
+	.meta-value {
+		font-size: 0.9rem;
 	}
 
 	.project-overview {

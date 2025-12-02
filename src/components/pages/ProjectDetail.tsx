@@ -78,7 +78,7 @@ function ProjectHero(props:ProjectDetailProps) : JSX.Element
 							<span className="meta-value">{project.duration}</span>
 						</div>
 						<div className="meta-item">
-							<span className="meta-label">Date</span>
+							<span className="meta-label">Completed</span>
 							<span className="meta-value">
 								{new Date(project.completedDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}
 							</span>
@@ -87,6 +87,12 @@ function ProjectHero(props:ProjectDetailProps) : JSX.Element
 							<span className="meta-label">Team Size</span>
 							<span className="meta-value">{project.teamSize}</span>
 						</div>
+					</div>
+
+					<div className="project-technologies">
+						{project.technologies && project.technologies.map((tech) => (
+							<span key={tech} className="tech-tag">{tech}</span>
+						))}
 					</div>
 				</div>
 			</section>
