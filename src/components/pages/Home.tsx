@@ -60,7 +60,7 @@ function Background()
 				<div className="container">
 					<div className="background-content">
 						<div className="profile-image">
-							<img src="https://via.placeholder.com/250" alt="Profile" />
+							<img src={DataHandler.getGlobalAsset("avatar.jpg")} alt="Profile" />
 						</div>
 						<div className="background-text">
 							<ReactMarkdown>{backgroundInfo}</ReactMarkdown>

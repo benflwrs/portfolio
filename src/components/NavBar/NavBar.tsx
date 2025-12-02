@@ -5,15 +5,22 @@ import { Navigation } from '../../types/Navigation';
 import './Navbar.css';
 import CustomLink from 'components/CustomLink';
 
-const defaultNavItems: { id: string; label: string }[] = [
+const defaultNavItems: NavItem[] = [
 	{ id: '', label: 'Home' },
 	{ id: 'projects', label: 'Projects' },
 
 ];
 
+export type NavItem = {
+	id: string;
+	label: string;
+	href?: string;
+	target?: string;
+};
+
 type NavbarProps = {
 	logo?: string;
-	navItems?: { id: string; label: string }[];
+	navItems?: NavItem[];
 };
 
 export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems }: NavbarProps): JSX.Element {
@@ -43,22 +50,26 @@ export default function Navbar({ logo = 'Your Name', navItems = defaultNavItems 
 				<ul className={`nav-links ${isOpen ? 'active' : ''}`}>
 					{navItems.map(item => (
 						<li key={item.id}>
-							{/*<a
-								//to={`/${item.id}`}
-								href={Navigation.GetHREF(`/${item.id}`)}
-								className={`nav-link${active === item.id ? ' active' : ''}`}
-								onClick={(e) => handleLinkClick(e, item.id)}
-							>
-								{item.label}
-							</a>*/}
-							<CustomLink
-								//href={Navigation.GetHREF(`/${item.id}`)}
-								to={item.id}
-								className={`nav-link${active === item.id ? ' active' : ''}`}
-								onClick={(e:React.MouseEvent<HTMLAnchorElement>) => handleLinkClick(e, item.id)}
-							>
-								{item.label}
-							</CustomLink>
+							{item.href ? (
+								<a
+									href={item.href}
+									target={item.target}
+									rel={item.target === '_blank' ? "noopener noreferrer" : undefined}
+									className={`nav-link${active === item.id ? ' active' : ''}`}
+									onClick={() => setIsOpen(false)}
+								>
+									{item.label}
+								</a>
+							) : (
+								<CustomLink
+									//href={Navigation.GetHREF(`/${item.id}`)}
+									to={item.id}
+									className={`nav-link${active === item.id ? ' active' : ''}`}
+									onClick={(e:React.MouseEvent<HTMLAnchorElement>) => handleLinkClick(e, item.id)}
+								>
+									{item.label}
+								</CustomLink>
+							)}
 						</li>
 					))}
 				</ul>

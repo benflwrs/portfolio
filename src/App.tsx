@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { JSX, useEffect } from 'react';
 import { BrowserRouter, HashRouter, Route, Routes, useNavigate } from 'react-router-dom';
 
 import './App.css';
@@ -81,7 +81,7 @@ function App() {
 						{ id: '', label: 'Home' },
 						{ id: 'projects', label: 'Projects' },
 						//{ id: 'vfx', label: 'VFX' },
-						//{ id: 'resume', label: 'Resume' },
+						{ id: 'resume', label: 'Resume', href: DataHandler.getGlobalAsset("resume.pdf"), target: '_blank' },
 					]}
 				/>
 				<RouteChangeListener>

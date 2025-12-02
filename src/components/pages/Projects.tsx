@@ -4,6 +4,7 @@ import MainButton from "../buttons/MainButton/MainButton";
 import { ProjectData } from "types/ProjectData";
 import { DataHandler } from "types/DataHandler";
 import { Navigation } from "types/Navigation";
+import { Footer } from "components/Footer";
 
 function List(): JSX.Element
 {
@@ -65,6 +66,7 @@ export default function Projects(): JSX.Element
 	return(
 		<>
 			<List></List>
+			<Footer></Footer>
 		</>
 	);
 }
