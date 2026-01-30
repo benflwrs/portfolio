@@ -1,0 +1,17 @@
+{
+	"key": "switchery",
+	"title": "Switchery",
+	"description": "A sokoban-inspired puzzle game where you play as a wizard cleaning his castle.",
+	"genre": "Puzzle / Sokoban",
+	"platform": "PC / Web",
+	"technologies": [
+		"Godot",
+		"C#"
+	],
+	"thumbnail": "/projects/switchery/eyecatcher.png",
+	"heroImage": "/projects/switchery/eyecatcher.png",
+	"startDate": "2022-01-01",
+	"duration": "2 months",
+	"teamSize": 5,
+	"type": "game"
+}

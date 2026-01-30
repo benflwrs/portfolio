@@ -1,0 +1,20 @@
+{
+	"key": "gyaruRPG",
+	"title": "Gyaru Ultimate Revenge",
+	"description": "The chaos induced adventures of a gyaru fighting against conformism in a dystopian Kyoto",
+	"genre": "Turn-based RPG",
+	"platform": "PC",
+	"technologies": [
+		"Unreal Engine",
+		"Blueprint",
+		"C++",
+		"HLSL"
+	],
+	"thumbnail": "/projects/gyaruRPG/thumbnail.png",
+	"heroImage": "/projects/gyaruRPG/thumbnail.png",
+	"imageUrl": [],
+	"startDate": "2025-05-21",
+	"duration": "3 months",
+	"teamSize": 20,
+	"type": "game"
+}

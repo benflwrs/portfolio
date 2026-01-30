@@ -1,0 +1,18 @@
+{
+	"key": "solarLeap",
+	"title": "Solar Leap",
+	"description": "Use the growth power of sunflowers to save your peaceful garden ark",
+	"genre": "3D Platformer",
+	"platform": "Nintendo Switch",
+	"technologies": [
+		"Unity Engine",
+		"C#",
+		"HLSL"
+	],
+	"thumbnail": "/projects/solarLeap/thumbnail.jpg",
+	"heroVideo": "https://video.cloudflare.steamstatic.com/store_trailers/257063491/movie480_vp9.webm?t=1728548956",
+	"startDate": "2025-09-21",
+	"duration": "9 months",
+	"teamSize": 20,
+	"type": "game"
+}

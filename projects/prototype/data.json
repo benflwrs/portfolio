@@ -1,0 +1,18 @@
+{
+	"key": "prototype",
+	"title": "Fighting Game",
+	"description": "A fighting game prototype focused on game feel, animations, and juicy feedback systems",
+	"genre": "Fighting Game",
+	"platform": "PC / Web Browser",
+	"technologies": [
+		"Unity Engine",
+		"C#"
+	],
+	"thumbnail": "/projects/prototype/s1.png",
+	"heroImage": "/projects/prototype/eyecatcher.png",
+	"imageUrl": [],
+	"startDate": "2023-05-01",
+	"duration": "1 week",
+	"teamSize": 2,
+	"type": "game"
+}

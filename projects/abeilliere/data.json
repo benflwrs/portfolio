@@ -1,0 +1,19 @@
+{
+	"key": "abeilliere",
+	"title": "L'Abeillière",
+	"description": "A real-time strategy/tycoon game where you manage and protect a hive, collect pollen and make honey!",
+	"genre": "Tycoon / RTS",
+	"platform": "Windows",
+	"technologies": [
+		"Unity Engine",
+		"C#"
+	],
+	"thumbnail": "/projects/abeilliere/s1.png",
+	"heroImage": "/projects/abeilliere/s2.png",
+	"startDate": "2023-09-01",
+	"completedDate": "2023-09-03",
+	"duration": "3 days",
+	"teamSize": 8,
+	"type": "game",
+	"controls": "Mouse"
+}

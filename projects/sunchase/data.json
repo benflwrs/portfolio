@@ -1,0 +1,18 @@
+{
+	"key": "sunchase",
+	"title": "Sunchase",
+	"description": "A side-scrolling shoot'em up with a unique parry mechanic.",
+	"genre": "Shoot'em up",
+	"platform": "PC",
+	"technologies": [
+		"Flash",
+		"ActionScript 3",
+		"Adobe Animate"
+	],
+	"thumbnail": "/projects/sunchase/eyecatcher.png",
+	"heroImage": "/projects/sunchase/eyecatcher.png",
+	"startDate": "2021-12-01",
+	"duration": "1 month",
+	"teamSize": 1,
+	"type": "game"
+}

@@ -1,0 +1,19 @@
+{
+	"key": "cookingWithSatellites",
+	"title": "Cooking with Satellites",
+	"description": "2-Player One-Button Cooperative Arcade Game",
+	"genre": "Arcade / Coop",
+	"platform": "PC / Web",
+	"technologies": [
+		"Godot",
+		"C#",
+		"TypeScript",
+		"Node"
+	],
+	"thumbnail": "/projects/cookingWithSatellites/eyecatcher.png",
+	"heroImage": "/projects/cookingWithSatellites/eyecatcher.png",
+	"startDate": "2022-05-01",
+	"duration": "3 days",
+	"teamSize": 1,
+	"type": "game"
+}

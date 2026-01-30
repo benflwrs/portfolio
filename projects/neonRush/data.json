@@ -1,0 +1,17 @@
+{
+	"key": "neonRush",
+	"title": "Neon Rush",
+	"description": "Recreation of the puzzle game RUSH in Unity 3D with custom shaders and particle systems",
+	"genre": "Puzzle",
+	"platform": "Web browser / Mobile",
+	"technologies": [
+		"Unity",
+		"C#"
+	],
+	"thumbnail": "/projects/neonRush/eyecatcher.png",
+	"heroImage": "/projects/neonRush/eyecatcher.png",
+	"startDate": "2022-11-01",
+	"duration": "1 month",
+	"teamSize": 1,
+	"type": "game"
+}

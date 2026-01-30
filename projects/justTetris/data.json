@@ -1,0 +1,19 @@
+{
+	"key": "justTetris",
+	"title": "Just Tetris",
+	"description": "A recreation of the original Tetris with the modern ruleset, featuring juicy effects and a polished experience.",
+	"genre": "Puzzle",
+	"platform": "Windows / WebGL",
+	"technologies": [
+		"Unity Engine",
+		"C#"
+	],
+	"thumbnail": "/projects/justTetris/s1.png",
+	"heroImage": "/projects/justTetris/s1.png",
+	"startDate": "2023-08-01",
+	"completedDate": "2023-08-31",
+	"duration": "1 week",
+	"teamSize": 1,
+	"type": "game",
+	"controls": "Keyboard"
+}

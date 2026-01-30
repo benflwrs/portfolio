@@ -1,0 +1,19 @@
+{
+	"key": "andi",
+	"title": "Andi",
+	"description": "A beautiful platformer adventure through the scenic landscapes of Iceland, discovering its hidden secrets.",
+	"genre": "Platformer",
+	"platform": "PC / Mobile",
+	"technologies": [
+		"Unity Engine",
+		"C#"
+	],
+	"thumbnail": "/projects/andi/eyecatcher.png",
+	"heroImage": "/projects/andi/eyecatcher.png",
+	"startDate": "2023-01-01",
+	"completedDate": "2023-03-01",
+	"duration": "2 months",
+	"teamSize": 12,
+	"type": "game",
+	"controls": "Controller / Keyboard / Touch"
+}

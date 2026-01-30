@@ -1,0 +1,18 @@
+{
+	"key": "ballinBrawl",
+	"title": "Ballin Brawl",
+	"description": "Turn based strategy meets pools, chaos ensues. Build your team and slingshot your way to victory!",
+	"genre": "Strategy",
+	"platform": "Mobile",
+	"technologies": [
+		"Unity Engine",
+		"C#"
+	],
+	"thumbnail": "/projects/ballinBrawl/eyecatcher.png",
+	"heroImage": "/projects/ballinBrawl/s1.jpg",
+	"imageUrl": [],
+	"startDate": "2023-03-01",
+	"duration": "2 months",
+	"teamSize": 8,
+	"type": "game"
+}
