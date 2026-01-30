@@ -1,20 +1,10 @@
 # Overview
-
-Solar Leap is a vibrant 3D platformer where you harness the incredible growth power of sunflowers to navigate through a beautiful garden ark.
-
+‎
 :::section{type="text-image" align="left"}
-![Gameplay Screenshot](/projects/solarLeap/eyecatcher.png)
-
-## Dynamic Gameplay
-Plant and grow sunflowers to create dynamic platforms that reach new heights. Manage your energy and choose the right spots to grow your sunflowers for optimal traversal.
+::youtube{id="4A_KmyMe-6k" title="Solar Leap Trailer"}
+## Summary
+A floating garden is losing energy, and only Helio, the robot, and his companion, Lucy, can save it! Plant and climb towering sunflowers, discover hidden secrets, and overcome challenges to restore the garden’s energy before it’s too late!
 :::
-
-:::section{type="text" align="left"}
-## Watch the Trailer
-
-:::
-
-::youtube{id="dQw4w9WgXcQ" title="Solar Leap Trailer"}
 
 ### Gallery
 :::section{type="gallery"}
@@ -25,12 +15,43 @@ Plant and grow sunflowers to create dynamic platforms that reach new heights. Ma
 ![Screenshot 4](/projects/solarLeap/s4.png)
 :::
 
+# My Tasks
 
-## Technical Details
+## Early prototyping
 
-:::section{type="text-image" align="left"}
-![Tech Demo](/projects/solarLeap/logo.png)
+Early in the preprod, when the concept was still leaning onto playing a pencil [(Check original concept here)](https://www.raphael-granjon.com/copie-de-plushies).
 
-### Custom Shaders
-We developed custom HLSL shaders to handle the organic growth animations. The procedural flower patterns respond to player interaction in real-time.
+I prototyped a mesh painting feature for the level that was much more performant and polyvalent than the previous method.
+
+![Mesh Painter](/projects/solarLeap/drawing.gif)
+
+## Level Features
+
+Implemented a safe zone system to have a much more forgiving respawn and allow level designers to section off the level's challenges.
+
+Implemented camera orbit override triggers
+that allows level designers to tweak the freelook camera on certain parts of the level where the ceiling might be low or the section might be tall.
+
+Created all level interactable elements such as cloud platforms, moving platforms, movable platforms, water sections.
+
+## UI
+
+Programmed the Menus, HUD, Transitions, Tutorial barks.
+
+## Player Features
+
+Implemented the player abilities such as ledge grab, rolling and the sunflower locking onto surfaces.
+
+## Game Feel
+
+Implemented a few vfx including a custom depth based water shader.
+
+![Water](/projects/solarLeap/water.gif)
+
+:::section{type="space"}
 :::
+
+# Walkthrough
+:::youtube{id="_XIWQxEwPwE" title="Solar Leap Walkthrough"}
+:::
+

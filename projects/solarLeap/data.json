@@ -10,7 +10,7 @@
 		"HLSL"
 	],
 	"thumbnail": "/projects/solarLeap/thumbnail.jpg",
-	"heroVideo": "https://video.cloudflare.steamstatic.com/store_trailers/257063491/movie480_vp9.webm?t=1728548956",
+	"heroImage": "/projects/solarLeap/thumbnail.jpg",
 	"startDate": "2025-09-21",
 	"duration": "9 months",
 	"teamSize": 20,
